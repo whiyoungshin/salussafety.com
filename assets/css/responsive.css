@@ -1,0 +1,93 @@
+/* ============================================================
+   SALUS SAFETY — Responsive rules
+   Breakpoints: 1024px (tablet), 768px (small tablet), 560px (mobile)
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .split { gap: 40px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .section { padding: 72px 0; }
+  .cta-banner { padding: 56px 44px; }
+  .main-nav > li > a { padding: 10px 10px; font-size: .9rem; }
+}
+
+@media (max-width: 900px) {
+  /* Mobile navigation */
+  .nav-toggle { display: flex; }
+
+  .main-nav {
+    /* Note: the header's backdrop-filter makes it the containing block,
+       so use an explicit height instead of bottom:0 */
+    position: fixed;
+    top: 76px; left: 0; right: 0;
+    height: calc(100vh - 76px);
+    background: var(--white);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 24px;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform .35s cubic-bezier(.4,0,.2,1);
+  }
+
+  .main-nav.open { transform: none; }
+
+  .main-nav > li > a { padding: 16px 12px; font-size: 1.05rem; border-bottom: 1px solid var(--grey); border-radius: 0; }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1; visibility: visible; transform: none;
+    box-shadow: none; border: 0;
+    padding: 0 0 8px 18px;
+    display: none;
+  }
+
+  .main-nav li.dd-open .dropdown-menu { display: block; }
+
+  .header-cta { display: none; }
+
+  .split-hero { grid-template-columns: 1fr; min-height: 0; }
+  .hero-panel { min-height: 62vh; padding: 44px 28px; }
+
+  .split { grid-template-columns: 1fr; }
+  .page-hero { padding: 140px 0 64px; }
+}
+
+@media (max-width: 768px) {
+  .grid-3 { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .cta-banner { flex-direction: column; align-items: flex-start; }
+  .testimonial { padding: 40px 24px; }
+  .section { padding: 56px 0; }
+  .section-head { margin-bottom: 36px; }
+}
+
+@media (max-width: 560px) {
+  .grid-4, .grid-2 { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; gap: 36px; }
+  .container { padding: 0 18px; }
+  .btn { width: 100%; justify-content: center; }
+  .cta-banner .cta-actions { width: 100%; flex-direction: column; }
+  .hero-panel { min-height: 56vh; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .brand img { height: 34px; }
+  .division-panel { padding: 30px 24px; }
+  .spec-table { font-size: .85rem; }
+  .spec-table th, .spec-table td { padding: 10px 12px; }
+}
+
+/* Larger screens: give hero panels more breathing room */
+@media (min-width: 1440px) {
+  .hero-panel { padding: 80px 88px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .logo-track { animation: none; }
+  * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

@@ -1,0 +1,237 @@
+/* ============================================================
+   SALUS SAFETY — Global Styles
+   Design system: tokens, base, typography, layout utilities
+   ============================================================ */
+
+:root {
+  /* Brand colors */
+  --primary-blue: #005BAC;
+  --dark-blue: #003E7E;
+  --deep-navy: #002B57;
+  --light-blue: #EAF4FF;
+  --white: #FFFFFF;
+  --grey: #F5F7FA;
+  --grey-200: #E5EAF0;
+  --grey-400: #9AA7B5;
+  --text: #1F2937;
+  --text-muted: #5B6B7C;
+  --accent: #00A8A8;
+  --accent-soft: #E0F5F5;
+
+  /* Typography */
+  --font-heading: "Inter Tight", "Inter", -apple-system, sans-serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+
+  /* Layout */
+  --container: 1200px;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 1px 3px rgba(15, 35, 60, .07), 0 1px 2px rgba(15, 35, 60, .05);
+  --shadow-md: 0 6px 22px rgba(15, 35, 60, .09);
+  --shadow-lg: 0 18px 48px rgba(0, 43, 87, .16);
+  --transition: all .28s cubic-bezier(.4, 0, .2, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--primary-blue); text-decoration: none; transition: var(--transition); }
+
+ul { list-style: none; }
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--deep-navy);
+  letter-spacing: -.02em;
+}
+
+h1 { font-size: clamp(2.4rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.6rem); }
+h4 { font-size: 1.15rem; }
+
+.lead { font-size: 1.2rem; color: var(--text-muted); max-width: 46em; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--primary-blue);
+  margin-bottom: 14px;
+}
+
+.eyebrow.accent { color: var(--accent); }
+
+/* ---------- Layout utilities ---------- */
+.container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+.section { padding: 96px 0; }
+.section.tight { padding: 64px 0; }
+.section.grey { background: var(--grey); }
+.section.light-blue { background: var(--light-blue); }
+.section.navy { background: var(--deep-navy); }
+.section.navy h2, .section.navy h3 { color: var(--white); }
+.section.navy p { color: rgba(255, 255, 255, .78); }
+
+.section-head { max-width: 720px; margin-bottom: 56px; }
+.section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+.section-head p { margin-top: 16px; color: var(--text-muted); font-size: 1.1rem; }
+
+.grid { display: grid; gap: 28px; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transition);
+}
+
+.btn .arrow { transition: transform .25s ease; }
+.btn:hover .arrow { transform: translateX(4px); }
+
+.btn-primary { background: var(--primary-blue); color: var(--white); }
+.btn-primary:hover { background: var(--dark-blue); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+.btn-accent { background: var(--accent); color: var(--white); }
+.btn-accent:hover { background: #008C8C; box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+.btn-outline { border-color: var(--primary-blue); color: var(--primary-blue); background: transparent; }
+.btn-outline:hover { background: var(--primary-blue); color: var(--white); }
+
+.btn-white { background: var(--white); color: var(--primary-blue); }
+.btn-white:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+.btn-ghost-white { border-color: rgba(255,255,255,.55); color: var(--white); background: transparent; }
+.btn-ghost-white:hover { background: rgba(255,255,255,.12); border-color: var(--white); }
+
+/* ---------- Page hero (interior pages) ---------- */
+.page-hero {
+  background: linear-gradient(115deg, var(--deep-navy) 0%, var(--dark-blue) 55%, var(--primary-blue) 100%);
+  padding: 170px 0 90px;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  right: -160px; top: -160px;
+  width: 520px; height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,168,168,.28), transparent 65%);
+}
+
+.page-hero h1 { color: var(--white); }
+.page-hero p { color: rgba(255,255,255,.82); font-size: 1.15rem; max-width: 620px; margin-top: 18px; }
+
+.breadcrumb { font-size: .85rem; margin-bottom: 22px; color: rgba(255,255,255,.65); }
+.breadcrumb a { color: rgba(255,255,255,.85); }
+.breadcrumb a:hover { color: var(--white); }
+
+/* ---------- Misc ---------- */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  font-weight: 800;
+  color: var(--primary-blue);
+  line-height: 1;
+}
+
+.section.navy .stat-number { color: var(--accent); }
+
+.checklist li {
+  padding: 9px 0 9px 34px;
+  position: relative;
+  color: var(--text-muted);
+}
+
+.checklist li::before {
+  content: "";
+  position: absolute; left: 0; top: 14px;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--light-blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23005BAC' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/12px no-repeat;
+}
+
+.img-rounded { border-radius: var(--radius-lg); box-shadow: var(--shadow-md); object-fit: cover; width: 100%; }
+
+.divider { height: 1px; background: var(--grey-200); border: 0; margin: 0; }
+
+::selection { background: var(--primary-blue); color: var(--white); }
+
+
+/* === SALUS revised PDS product cards === */
+.product-grid-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: stretch;
+}
+.product-card.reveal { opacity: 1; transform: none; }
+.card .pds-card-media {
+  background: linear-gradient(180deg, #f8fbff 0%, #eef5fb 100%);
+  padding: 24px;
+}
+.card .pds-card-media img {
+  object-fit: contain;
+  transform: none !important;
+  filter: drop-shadow(0 12px 22px rgba(0,43,87,.12));
+}
+.product-spec-list {
+  margin: 18px 0 0;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--grey-200);
+  list-style: none;
+}
+.product-spec-list li {
+  position: relative;
+  padding: 5px 0 5px 16px;
+  color: var(--text-muted);
+  font-size: .84rem;
+  line-height: 1.35;
+}
+.product-spec-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+@media (max-width: 1180px) { .product-grid-5 { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px) { .product-grid-5 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .product-grid-5 { grid-template-columns: 1fr; } }

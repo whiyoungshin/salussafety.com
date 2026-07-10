@@ -1,0 +1,15 @@
+SALUS Safety revised website copy
+
+This folder is a separate working copy based on Gihan Kuruppu's public GitHub Pages draft.
+Original GitHub repository was not modified.
+
+Main changes:
+- Added PDS-based featured product lineup to index.html
+- Added extracted product images under assets/images/gloves/pds/
+- Updated Hand Protection product specification table in gloves.html
+- Softened unverified marketing wording for safer official-site use
+- Added responsive CSS for 5 product cards and PDS product images
+
+Recommended next step:
+- Review product names/specifications against final official PDS files before publishing.
+- Replace extracted PDF images with original high-resolution product photos if available.
